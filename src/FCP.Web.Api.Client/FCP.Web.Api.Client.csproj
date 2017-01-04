@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\HttpRestExtensions.cs" />
     <Compile Include="Extensions\StringUriExtensions.cs" />
     <Compile Include="IRestApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\RestApiRequest.cs" />
     <Compile Include="RestApiClient.cs" />
     <Compile Include="Results\RestApiResult.cs" />
   </ItemGroup>

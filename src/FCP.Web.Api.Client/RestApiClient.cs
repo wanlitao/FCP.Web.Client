@@ -72,6 +72,22 @@ namespace FCP.Web.Api.Client
         }
         #endregion
 
+        #region Send
+        protected async Task<RestApiResult> SendAsync(RestApiRequest request, CancellationToken cancellationToken)
+        {
+            var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
+
+            return await response.ToRestResultAsync().ConfigureAwait(false);
+        }
+
+        protected async Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request, CancellationToken cancellationToken)
+        {
+            var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
+
+            return await response.ToRestResultAsync<T>().ConfigureAwait(false);
+        }
+        #endregion
+
         #region IDisposable Support
         private bool disposed = false;
 
@@ -81,7 +97,7 @@ namespace FCP.Web.Api.Client
             {
                 if (disposing)
                 {
-
+                    _httpClient.Dispose();
                 }
             }
             this.disposed = true;
