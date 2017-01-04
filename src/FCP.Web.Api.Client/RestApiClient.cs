@@ -8,7 +8,7 @@ namespace FCP.Web.Api.Client
 {
     public class RestApiClient : IRestApiClient
     {
-        private HttpClient _httpClient;       
+        private HttpClient _httpClient;
 
         #region Constructors
         public RestApiClient(string baseUrl)
@@ -36,7 +36,7 @@ namespace FCP.Web.Api.Client
         #endregion
 
         #region Properties
-        public Uri BaseUri { get; set; }
+        public virtual Uri BaseUri { get; set; }
 
         protected HttpClient Client { get { return GetHttpClient(); } }
         #endregion
