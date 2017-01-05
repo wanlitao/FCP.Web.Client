@@ -51,24 +51,44 @@ namespace FCP.Web.Api.Client
         #endregion
 
         #region Get
-        public Task<RestApiResult> GetAsync(Uri requestUri)
+        public Task<RestApiResult> GetAsync(string requestUrl)
         {
-            throw new NotImplementedException();
+            return GetAsync(requestUrl.ToUri());
         }
 
-        public Task<RestApiResult> GetAsync(string requestUri)
+        public Task<RestApiResult> GetAsync(Uri requestUri)
         {
-            throw new NotImplementedException();
+            return GetAsync(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult> GetAsync(string requestUrl, CancellationToken cancellationToken)
+        {
+            return GetAsync(requestUrl.ToUri(), cancellationToken);
         }
 
         public Task<RestApiResult> GetAsync(Uri requestUri, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return SendAsync(new RestApiEmptyRequest(HttpMethod.Get, requestUri), cancellationToken);
         }
 
-        public Task<RestApiResult> GetAsync(string requestUri, CancellationToken cancellationToken)
+        public Task<RestApiResult<T>> GetAsync<T>(string requestUrl)
         {
-            throw new NotImplementedException();
+            return GetAsync<T>(requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<T>> GetAsync<T>(Uri requestUri)
+        {
+            return GetAsync<T>(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<T>> GetAsync<T>(string requestUrl, CancellationToken cancellationToken)
+        {
+            return GetAsync<T>(requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<T>> GetAsync<T>(Uri requestUri, CancellationToken cancellationToken)
+        {
+            return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Get, requestUri), cancellationToken);
         }
         #endregion
 

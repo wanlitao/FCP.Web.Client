@@ -27,7 +27,10 @@ namespace FCP.Web.Api.Client
         #region Request
         internal static HttpRequestMessage ToRequestMessage(this RestApiRequest request)
         {
-            throw new NotImplementedException();
+            return new HttpRequestMessage(request.Method, request.RequestUri)
+            {
+                Content = request.Content
+            };
         }
         #endregion
 
@@ -81,7 +84,7 @@ namespace FCP.Web.Api.Client
             if (_mediaTypeSerializerMap.TryGetValue(mediaType, out serializer))            
                 return serializer;            
 
-            throw new ArgumentException($"not found serializer of mediaType: {mediaType}");
+            throw new NotImplementedException($"not found serializer of mediaType: {mediaType}");
         }
         #endregion
     }
