@@ -3,16 +3,16 @@ using System;
 
 namespace FCP.Web.Api.Client
 {
-    internal static class StringUriExtensions
+    public static class StringUriExtensions
     {
         private readonly static Uri LocalhostBaseUri = new Uri("http://127.0.0.1/");
 
-        internal static Uri ToUri(this string url)
+        public static Uri ToUri(this string url)
         {
             return url.ToUri(UriKind.RelativeOrAbsolute);
         }
 
-        internal static Uri ToUri(this string url, UriKind uriKind)
+        public static Uri ToUri(this string url, UriKind uriKind)
         {
             if (url.isNullOrEmpty())
             {
@@ -21,7 +21,7 @@ namespace FCP.Web.Api.Client
             return new Uri(url, uriKind);
         }
 
-        internal static Uri ToAbsolute(this Uri uri)
+        public static Uri ToAbsolute(this Uri uri)
         {
             if (uri == null)
                 throw new ArgumentNullException(nameof(uri));

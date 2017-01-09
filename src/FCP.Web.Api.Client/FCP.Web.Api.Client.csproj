@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FCP.Util, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FCP.Util.1.0.6\lib\net40\FCP.Util.dll</HintPath>
+    <Reference Include="FCP.Util, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Util.1.0.7\lib\net40\FCP.Util.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FCP.Util.Async, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\HttpRestExtensions.cs" />
+    <Compile Include="Extensions\RestApiClientCRUDExtensions.cs" />
     <Compile Include="Extensions\StringUriExtensions.cs" />
     <Compile Include="IRestApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
