@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("FCP.Web.Api.Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("web api client for FCP(Fluent Compute Platform)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("GreatBillows")]
 [assembly: AssemblyProduct("FCP.Web.Api.Client")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © GreatBillows 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
