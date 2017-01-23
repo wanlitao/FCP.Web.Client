@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FCP.Web.Api.Client
 {
-    internal static class HttpRestExtensions
+    public static class HttpRestExtensions
     {
         private readonly static IDictionary<string, ISerializer> _mediaTypeSerializerMap = new Dictionary<string, ISerializer>();
          
@@ -25,8 +25,11 @@ namespace FCP.Web.Api.Client
         #endregion
 
         #region Request
-        internal static HttpRequestMessage ToRequestMessage(this RestApiRequest request)
+        public static HttpRequestMessage ToRequestMessage(this RestApiRequest request)
         {
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
+
             return new HttpRequestMessage(request.Method, request.RequestUri)
             {
                 Content = request.Content
@@ -35,8 +38,11 @@ namespace FCP.Web.Api.Client
         #endregion
 
         #region Response
-        internal static async Task<RestApiResult> ToRestResultAsync(this HttpResponseMessage response)
+        public static async Task<RestApiResult> ToRestResultAsync(this HttpResponseMessage response)
         {
+            if (response == null)
+                throw new ArgumentNullException(nameof(response));
+
             var apiResult = new RestApiResult
             {
                 code = response.StatusCode,
@@ -52,8 +58,11 @@ namespace FCP.Web.Api.Client
             return apiResult;
         }
 
-        internal static async Task<RestApiResult<T>> ToRestResultAsync<T>(this HttpResponseMessage response)
+        public static async Task<RestApiResult<T>> ToRestResultAsync<T>(this HttpResponseMessage response)
         {
+            if (response == null)
+                throw new ArgumentNullException(nameof(response));
+
             var apiResult = new RestApiResult<T>
             {
                 code = response.StatusCode,

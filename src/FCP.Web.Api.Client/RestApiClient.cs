@@ -395,14 +395,24 @@ namespace FCP.Web.Api.Client
         #endregion
 
         #region Send
-        protected async Task<RestApiResult> SendAsync(RestApiRequest request, CancellationToken cancellationToken)
+        public Task<RestApiResult> SendAsync(RestApiRequest request)
+        {
+            return SendAsync(request, CancellationToken.None);
+        }
+
+        public async Task<RestApiResult> SendAsync(RestApiRequest request, CancellationToken cancellationToken)
         {
             var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
 
             return await response.ToRestResultAsync().ConfigureAwait(false);
         }
 
-        protected async Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request, CancellationToken cancellationToken)
+        public Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request)
+        {
+            return SendAsync<T>(request, CancellationToken.None);
+        }
+
+        public async Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request, CancellationToken cancellationToken)
         {
             var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
 

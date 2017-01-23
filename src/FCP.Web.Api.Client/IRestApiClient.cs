@@ -6,6 +6,10 @@ namespace FCP.Web.Api.Client
 {
     public interface IRestApiClient : IDisposable
     {
+        #region Properties
+        Uri BaseUri { get; set; }
+        #endregion
+
         #region Get
         Task<RestApiResult> GetAsync(string requestUrl);
 
@@ -156,6 +160,16 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> DeleteAsync<T>(string requestUrl, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> DeleteAsync<T>(Uri requestUri, CancellationToken cancellationToken);
+        #endregion
+
+        #region Send
+        Task<RestApiResult> SendAsync(RestApiRequest request);
+
+        Task<RestApiResult> SendAsync(RestApiRequest request, CancellationToken cancellationToken);
+
+        Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request);
+
+        Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request, CancellationToken cancellationToken);
         #endregion
     }
 }

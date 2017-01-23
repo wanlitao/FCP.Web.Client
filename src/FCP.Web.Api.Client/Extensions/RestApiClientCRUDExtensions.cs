@@ -8,7 +8,7 @@ namespace FCP.Web.Api.Client
     public static class RestApiClientCRUDExtensions
     {
         #region Helper Functions
-        internal static Uri BuildByKeyRequestUri<TKey>(Uri requestUri, TKey keyParam)
+        public static Uri BuildByKeyRequestUri<TKey>(Uri requestUri, TKey keyParam)
         {
             if (keyParam == null)
                 throw new ArgumentNullException(nameof(keyParam));

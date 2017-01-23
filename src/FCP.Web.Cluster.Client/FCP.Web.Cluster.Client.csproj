@@ -33,6 +33,22 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FCP.Cache.Core, Version=0.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Cache.Core.0.5.3\lib\net45\FCP.Cache.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FCP.Cache.Memory, Version=0.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Cache.Memory.0.5.3\lib\net45\FCP.Cache.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FCP.Cache.Service, Version=0.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Cache.Service.0.5.3\lib\net45\FCP.Cache.Service.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FCP.Cache.Service.Memory, Version=0.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Cache.Service.Memory.0.5.3\lib\net45\FCP.Cache.Service.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FCP.ConsulClient, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FCP.ConsulClient.0.1.2.0\lib\net45\FCP.ConsulClient.dll</HintPath>
       <Private>True</Private>
@@ -55,6 +71,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,8 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClusterRestApiClient.cs" />
+    <Compile Include="Extensions\ClusterApiClientCRUDExtensions.cs" />
     <Compile Include="IClusterRestApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ClusterCacheService.cs" />
+    <Compile Include="Service\IClusterCacheService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FCP.Web.Api.Client\FCP.Web.Api.Client.csproj">
