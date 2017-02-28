@@ -90,6 +90,26 @@ namespace FCP.Web.Api.Client
         {
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Get, requestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> GetRawAsync(string requestUrl)
+        {
+            return GetRawAsync(requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(Uri requestUri)
+        {
+            return GetRawAsync(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(string requestUrl, CancellationToken cancellationToken)
+        {
+            return GetRawAsync(requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(Uri requestUri, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Get, requestUri), cancellationToken);
+        }
         #endregion
 
         #region Post
@@ -417,6 +437,18 @@ namespace FCP.Web.Api.Client
             var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
 
             return await response.ToRestResultAsync<T>().ConfigureAwait(false);
+        }
+
+        public Task<RestApiResult<string>> SendRawAsync(RestApiRequest request)
+        {
+            return SendRawAsync(request, CancellationToken.None);
+        }
+
+        public async Task<RestApiResult<string>> SendRawAsync(RestApiRequest request, CancellationToken cancellationToken)
+        {
+            var response = await Client.SendAsync(request.ToRequestMessage(), cancellationToken).ConfigureAwait(false);
+
+            return await response.ToRestRawResultAsync().ConfigureAwait(false);
         }
         #endregion
 

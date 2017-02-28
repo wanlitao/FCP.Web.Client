@@ -26,6 +26,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> GetAsync<T>(string requestUrl, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> GetAsync<T>(Uri requestUri, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> GetRawAsync(string requestUrl);
+
+        Task<RestApiResult<string>> GetRawAsync(Uri requestUri);
+
+        Task<RestApiResult<string>> GetRawAsync(string requestUrl, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> GetRawAsync(Uri requestUri, CancellationToken cancellationToken);
         #endregion
 
         #region Post

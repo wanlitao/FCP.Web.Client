@@ -58,6 +58,30 @@ namespace FCP.Web.Api.Client
             return apiResult;
         }
 
+        public static async Task<RestApiResult<string>> ToRestRawResultAsync(this HttpResponseMessage response)
+        {
+            if (response == null)
+                throw new ArgumentNullException(nameof(response));
+
+            var apiResult = new RestApiResult<string>
+            {
+                code = response.StatusCode,
+                flag = response.IsSuccessStatusCode
+            };
+
+            var responseStr = await response.Content.ReadAsStringAsync().ConfigureAwait(false);            
+            if (response.IsSuccessStatusCode)
+            {
+                apiResult.data = responseStr;
+            }
+            else
+            {
+                apiResult.msg = responseStr;
+            }
+
+            return apiResult;
+        }
+
         public static async Task<RestApiResult<T>> ToRestResultAsync<T>(this HttpResponseMessage response)
         {
             if (response == null)
