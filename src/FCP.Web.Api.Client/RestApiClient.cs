@@ -154,6 +154,26 @@ namespace FCP.Web.Api.Client
         {
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Post, requestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string requestUrl)
+        {
+            return PostEmptyRawAsync(requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(Uri requestUri)
+        {
+            return PostEmptyRawAsync(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string requestUrl, CancellationToken cancellationToken)
+        {
+            return PostEmptyRawAsync(requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(Uri requestUri, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Post, requestUri), cancellationToken);
+        }
         #endregion
 
         #region Post Json String
@@ -196,6 +216,26 @@ namespace FCP.Web.Api.Client
         {
             return SendAsync<T>(new RestApiJsonRequest(HttpMethod.Post, requestUri) { Json = requestJson }, cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string requestUrl, string requestJson)
+        {
+            return PostJsonRawAsync(requestUrl.ToUri(), requestJson);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(Uri requestUri, string requestJson)
+        {
+            return PostJsonRawAsync(requestUri, requestJson, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string requestUrl, string requestJson, CancellationToken cancellationToken)
+        {
+            return PostJsonRawAsync(requestUrl.ToUri(), requestJson, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(Uri requestUri, string requestJson, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiJsonRequest(HttpMethod.Post, requestUri) { Json = requestJson }, cancellationToken);
+        }
         #endregion
 
         #region Post Data AsJson
@@ -237,6 +277,26 @@ namespace FCP.Web.Api.Client
         public Task<RestApiResult<TResult>> PostAsJsonAsync<TRequest, TResult>(Uri requestUri, TRequest requestData, CancellationToken cancellationToken)
         {
             return SendAsync<TResult>(new RestApiJsonRequest<TRequest>(HttpMethod.Post, requestUri) { Data = requestData }, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string requestUrl, T requestData)
+        {
+            return PostAsJsonRawAsync(requestUrl.ToUri(), requestData);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(Uri requestUri, T requestData)
+        {
+            return PostAsJsonRawAsync(requestUri, requestData, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string requestUrl, T requestData, CancellationToken cancellationToken)
+        {
+            return PostAsJsonRawAsync(requestUrl.ToUri(), requestData, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(Uri requestUri, T requestData, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiJsonRequest<T>(HttpMethod.Post, requestUri) { Data = requestData }, cancellationToken);
         }
         #endregion
 
@@ -284,6 +344,26 @@ namespace FCP.Web.Api.Client
         {
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Put, requestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string requestUrl)
+        {
+            return PutEmptyRawAsync(requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(Uri requestUri)
+        {
+            return PutEmptyRawAsync(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string requestUrl, CancellationToken cancellationToken)
+        {
+            return PutEmptyRawAsync(requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(Uri requestUri, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Put, requestUri), cancellationToken);
+        }
         #endregion
 
         #region Put Json String
@@ -326,6 +406,26 @@ namespace FCP.Web.Api.Client
         {
             return SendAsync<T>(new RestApiJsonRequest(HttpMethod.Put, requestUri) { Json = requestJson }, cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string requestUrl, string requestJson)
+        {
+            return PutJsonRawAsync(requestUrl.ToUri(), requestJson);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(Uri requestUri, string requestJson)
+        {
+            return PutJsonRawAsync(requestUri, requestJson, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string requestUrl, string requestJson, CancellationToken cancellationToken)
+        {
+            return PutJsonRawAsync(requestUrl.ToUri(), requestJson, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(Uri requestUri, string requestJson, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiJsonRequest(HttpMethod.Put, requestUri) { Json = requestJson }, cancellationToken);
+        }
         #endregion
 
         #region Put Data AsJson
@@ -367,6 +467,26 @@ namespace FCP.Web.Api.Client
         public Task<RestApiResult<TResult>> PutAsJsonAsync<TRequest, TResult>(Uri requestUri, TRequest requestData, CancellationToken cancellationToken)
         {
             return SendAsync<TResult>(new RestApiJsonRequest<TRequest>(HttpMethod.Put, requestUri) { Data = requestData }, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string requestUrl, T requestData)
+        {
+            return PutAsJsonRawAsync(requestUrl.ToUri(), requestData);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(Uri requestUri, T requestData)
+        {
+            return PutAsJsonRawAsync(requestUri, requestData, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string requestUrl, T requestData, CancellationToken cancellationToken)
+        {
+            return PutAsJsonRawAsync(requestUrl.ToUri(), requestData, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(Uri requestUri, T requestData, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiJsonRequest<T>(HttpMethod.Put, requestUri) { Data = requestData }, cancellationToken);
         }
         #endregion
 
@@ -411,6 +531,26 @@ namespace FCP.Web.Api.Client
         public Task<RestApiResult<T>> DeleteAsync<T>(Uri requestUri, CancellationToken cancellationToken)
         {
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Delete, requestUri), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string requestUrl)
+        {
+            return DeleteRawAsync(requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(Uri requestUri)
+        {
+            return DeleteRawAsync(requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string requestUrl, CancellationToken cancellationToken)
+        {
+            return DeleteRawAsync(requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(Uri requestUri, CancellationToken cancellationToken)
+        {
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Delete, requestUri), cancellationToken);
         }
         #endregion
 

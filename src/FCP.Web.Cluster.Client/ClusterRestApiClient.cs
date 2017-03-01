@@ -89,6 +89,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Get, fullRequestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> GetRawAsync(string service, string requestUrl)
+        {
+            return GetRawAsync(service, requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(string service, Uri requestUri)
+        {
+            return GetRawAsync(service, requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(string service, string requestUrl, CancellationToken cancellationToken)
+        {
+            return GetRawAsync(service, requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> GetRawAsync(string service, Uri requestUri, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Get, fullRequestUri), cancellationToken);
+        }
         #endregion
 
         #region Post
@@ -137,6 +159,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Post, fullRequestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string service, string requestUrl)
+        {
+            return PostEmptyRawAsync(service, requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string service, Uri requestUri)
+        {
+            return PostEmptyRawAsync(service, requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string service, string requestUrl, CancellationToken cancellationToken)
+        {
+            return PostEmptyRawAsync(service, requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostEmptyRawAsync(string service, Uri requestUri, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Post, fullRequestUri), cancellationToken);
+        }
         #endregion
 
         #region Post Json String
@@ -183,6 +227,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiJsonRequest(HttpMethod.Post, fullRequestUri) { Json = requestJson }, cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string service, string requestUrl, string requestJson)
+        {
+            return PostJsonRawAsync(service, requestUrl.ToUri(), requestJson);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string service, Uri requestUri, string requestJson)
+        {
+            return PostJsonRawAsync(service, requestUri, requestJson, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string service, string requestUrl, string requestJson, CancellationToken cancellationToken)
+        {
+            return PostJsonRawAsync(service, requestUrl.ToUri(), requestJson, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostJsonRawAsync(string service, Uri requestUri, string requestJson, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiJsonRequest(HttpMethod.Post, fullRequestUri) { Json = requestJson }, cancellationToken);
+        }
         #endregion
 
         #region Post Data AsJson
@@ -228,6 +294,28 @@ namespace FCP.Web.Cluster.Client
             var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
 
             return SendAsync<TResult>(new RestApiJsonRequest<TRequest>(HttpMethod.Post, fullRequestUri) { Data = requestData }, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string service, string requestUrl, T requestData)
+        {
+            return PostAsJsonRawAsync(service, requestUrl.ToUri(), requestData);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string service, Uri requestUri, T requestData)
+        {
+            return PostAsJsonRawAsync(service, requestUri, requestData, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string service, string requestUrl, T requestData, CancellationToken cancellationToken)
+        {
+            return PostAsJsonRawAsync(service, requestUrl.ToUri(), requestData, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string service, Uri requestUri, T requestData, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiJsonRequest<T>(HttpMethod.Post, fullRequestUri) { Data = requestData }, cancellationToken);
         }
         #endregion
 
@@ -279,6 +367,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Put, fullRequestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string service, string requestUrl)
+        {
+            return PutEmptyRawAsync(service, requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string service, Uri requestUri)
+        {
+            return PutEmptyRawAsync(service, requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string service, string requestUrl, CancellationToken cancellationToken)
+        {
+            return PutEmptyRawAsync(service, requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutEmptyRawAsync(string service, Uri requestUri, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Put, fullRequestUri), cancellationToken);
+        }
         #endregion
 
         #region Put Json String
@@ -325,6 +435,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiJsonRequest(HttpMethod.Put, fullRequestUri) { Json = requestJson }, cancellationToken);
         }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string service, string requestUrl, string requestJson)
+        {
+            return PutJsonRawAsync(service, requestUrl.ToUri(), requestJson);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string service, Uri requestUri, string requestJson)
+        {
+            return PutJsonRawAsync(service, requestUri, requestJson, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string service, string requestUrl, string requestJson, CancellationToken cancellationToken)
+        {
+            return PutJsonRawAsync(service, requestUrl.ToUri(), requestJson, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutJsonRawAsync(string service, Uri requestUri, string requestJson, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiJsonRequest(HttpMethod.Put, fullRequestUri) { Json = requestJson }, cancellationToken);
+        }
         #endregion
 
         #region Put Data AsJson
@@ -370,6 +502,28 @@ namespace FCP.Web.Cluster.Client
             var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
 
             return SendAsync<TResult>(new RestApiJsonRequest<TRequest>(HttpMethod.Put, fullRequestUri) { Data = requestData }, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string service, string requestUrl, T requestData)
+        {
+            return PutAsJsonRawAsync(service, requestUrl.ToUri(), requestData);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string service, Uri requestUri, T requestData)
+        {
+            return PutAsJsonRawAsync(service, requestUri, requestData, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string service, string requestUrl, T requestData, CancellationToken cancellationToken)
+        {
+            return PutAsJsonRawAsync(service, requestUrl.ToUri(), requestData, cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string service, Uri requestUri, T requestData, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiJsonRequest<T>(HttpMethod.Put, fullRequestUri) { Data = requestData }, cancellationToken);
         }
         #endregion
 
@@ -419,6 +573,28 @@ namespace FCP.Web.Cluster.Client
 
             return SendAsync<T>(new RestApiEmptyRequest(HttpMethod.Delete, fullRequestUri), cancellationToken);
         }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string service, string requestUrl)
+        {
+            return DeleteRawAsync(service, requestUrl.ToUri());
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string service, Uri requestUri)
+        {
+            return DeleteRawAsync(service, requestUri, CancellationToken.None);
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string service, string requestUrl, CancellationToken cancellationToken)
+        {
+            return DeleteRawAsync(service, requestUrl.ToUri(), cancellationToken);
+        }
+
+        public Task<RestApiResult<string>> DeleteRawAsync(string service, Uri requestUri, CancellationToken cancellationToken)
+        {
+            var fullRequestUri = BuildClusterServiceRequestUri(service, requestUri);
+
+            return SendRawAsync(new RestApiEmptyRequest(HttpMethod.Delete, fullRequestUri), cancellationToken);
+        }
         #endregion
 
         #region Send
@@ -444,6 +620,18 @@ namespace FCP.Web.Cluster.Client
             _restClient.BaseUri = await _clusterService.GetGatewayUriAsync().ConfigureAwait(false);
 
             return await _restClient.SendAsync<T>(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public Task<RestApiResult<string>> SendRawAsync(RestApiRequest request)
+        {
+            return SendRawAsync(request, CancellationToken.None);
+        }
+
+        public async Task<RestApiResult<string>> SendRawAsync(RestApiRequest request, CancellationToken cancellationToken)
+        {
+            _restClient.BaseUri = await _clusterService.GetGatewayUriAsync().ConfigureAwait(false);
+
+            return await _restClient.SendRawAsync(request, cancellationToken).ConfigureAwait(false);
         }
         #endregion
 

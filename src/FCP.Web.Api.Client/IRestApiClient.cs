@@ -54,6 +54,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> PostEmptyAsync<T>(string requestUrl, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> PostEmptyAsync<T>(Uri requestUri, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostEmptyRawAsync(string requestUrl);
+
+        Task<RestApiResult<string>> PostEmptyRawAsync(Uri requestUri);
+
+        Task<RestApiResult<string>> PostEmptyRawAsync(string requestUrl, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostEmptyRawAsync(Uri requestUri, CancellationToken cancellationToken);
         #endregion
 
         #region Post Json String
@@ -72,6 +80,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> PostJsonAsync<T>(string requestUrl, string requestJson, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> PostJsonAsync<T>(Uri requestUri, string requestJson, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostJsonRawAsync(string requestUrl, string requestJson);
+
+        Task<RestApiResult<string>> PostJsonRawAsync(Uri requestUri, string requestJson);
+
+        Task<RestApiResult<string>> PostJsonRawAsync(string requestUrl, string requestJson, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostJsonRawAsync(Uri requestUri, string requestJson, CancellationToken cancellationToken);
         #endregion
 
         #region Post Data AsJson
@@ -90,6 +106,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<TResult>> PostAsJsonAsync<TRequest, TResult>(string requestUrl, TRequest requestData, CancellationToken cancellationToken);
 
         Task<RestApiResult<TResult>> PostAsJsonAsync<TRequest, TResult>(Uri requestUri, TRequest requestData, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string requestUrl, T requestData);
+
+        Task<RestApiResult<string>> PostAsJsonRawAsync<T>(Uri requestUri, T requestData);
+
+        Task<RestApiResult<string>> PostAsJsonRawAsync<T>(string requestUrl, T requestData, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PostAsJsonRawAsync<T>(Uri requestUri, T requestData, CancellationToken cancellationToken);
         #endregion
 
         #endregion
@@ -112,6 +136,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> PutEmptyAsync<T>(string requestUrl, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> PutEmptyAsync<T>(Uri requestUri, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutEmptyRawAsync(string requestUrl);
+
+        Task<RestApiResult<string>> PutEmptyRawAsync(Uri requestUri);
+
+        Task<RestApiResult<string>> PutEmptyRawAsync(string requestUrl, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutEmptyRawAsync(Uri requestUri, CancellationToken cancellationToken);
         #endregion
 
         #region Put Json String
@@ -130,6 +162,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> PutJsonAsync<T>(string requestUrl, string requestJson, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> PutJsonAsync<T>(Uri requestUri, string requestJson, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutJsonRawAsync(string requestUrl, string requestJson);
+
+        Task<RestApiResult<string>> PutJsonRawAsync(Uri requestUri, string requestJson);
+
+        Task<RestApiResult<string>> PutJsonRawAsync(string requestUrl, string requestJson, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutJsonRawAsync(Uri requestUri, string requestJson, CancellationToken cancellationToken);
         #endregion
 
         #region Put Data AsJson
@@ -148,6 +188,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<TResult>> PutAsJsonAsync<TRequest, TResult>(string requestUrl, TRequest requestData, CancellationToken cancellationToken);
 
         Task<RestApiResult<TResult>> PutAsJsonAsync<TRequest, TResult>(Uri requestUri, TRequest requestData, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string requestUrl, T requestData);
+
+        Task<RestApiResult<string>> PutAsJsonRawAsync<T>(Uri requestUri, T requestData);
+
+        Task<RestApiResult<string>> PutAsJsonRawAsync<T>(string requestUrl, T requestData, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> PutAsJsonRawAsync<T>(Uri requestUri, T requestData, CancellationToken cancellationToken);
         #endregion
 
         #endregion
@@ -168,6 +216,14 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> DeleteAsync<T>(string requestUrl, CancellationToken cancellationToken);
 
         Task<RestApiResult<T>> DeleteAsync<T>(Uri requestUri, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> DeleteRawAsync(string requestUrl);
+
+        Task<RestApiResult<string>> DeleteRawAsync(Uri requestUri);
+
+        Task<RestApiResult<string>> DeleteRawAsync(string requestUrl, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> DeleteRawAsync(Uri requestUri, CancellationToken cancellationToken);
         #endregion
 
         #region Send
@@ -178,6 +234,10 @@ namespace FCP.Web.Api.Client
         Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request);
 
         Task<RestApiResult<T>> SendAsync<T>(RestApiRequest request, CancellationToken cancellationToken);
+
+        Task<RestApiResult<string>> SendRawAsync(RestApiRequest request);
+
+        Task<RestApiResult<string>> SendRawAsync(RestApiRequest request, CancellationToken cancellationToken);
         #endregion
     }
 }
