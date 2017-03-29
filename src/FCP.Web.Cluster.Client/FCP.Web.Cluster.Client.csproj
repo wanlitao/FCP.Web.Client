@@ -57,8 +57,8 @@
       <HintPath>..\..\packages\FCP.Routing.1.0.0.0\lib\net45\FCP.Routing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FCP.Util, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FCP.Util.1.0.7\lib\net40\FCP.Util.dll</HintPath>
+    <Reference Include="FCP.Util, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FCP.Util.1.0.9\lib\net40\FCP.Util.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FCP.Web.Cluster, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
